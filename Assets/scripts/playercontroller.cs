@@ -10,9 +10,10 @@ public class playercontroller : MonoBehaviour
     public Rigidbody2D rigidbody2d;
 
     public GameObject gamewonpanel;
+    public GameObject GameLostPanel;
     public float speed;
 
-    private bool isGameWon = false;
+    private bool isGameOver = false;
 
 
     void Start()
@@ -23,7 +24,7 @@ public class playercontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isGameWon == true)
+        if(isGameOver == true)
         {
             return;
         }
@@ -56,12 +57,15 @@ public class playercontroller : MonoBehaviour
         {
             Debug.Log("Level complete !!!");
             gamewonpanel.SetActive(true);
-            isGameWon = true;
+            isGameOver = true;
         }
-        else
+        else if (other.tag == "Enemy")
         {
-            Debug.Log("wrong door");
+            Debug.Log("Level LOst !!!");
+            GameLostPanel.SetActive(true);
+            isGameOver = true;
         }
+        
   
     }
     public void RestartGame()
