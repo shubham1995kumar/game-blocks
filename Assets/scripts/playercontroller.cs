@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+ 
 public class playercontroller : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -61,6 +63,12 @@ public class playercontroller : MonoBehaviour
             Debug.Log("wrong door");
         }
   
+    }
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        Debug.Log("buttonclicked");
     }
 
 }
